@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block title %}
+    child template inherting base.html
+{% endblock %}
+
+{% block header %}
+    <p>this is a not defult header</p>
+{% endblock %}
+<h1>
+    {{ self.title() }}
+</h1>
+{% block content %}
+    {{ super() }} 
+    {# used to get parent content while also overriding the same.
+    use super.super() in case of fetching the parent content from the grandchild parent>child>grandchild    
+        #}
+    <p>this is a not defult content</p>
+{% endblock %}

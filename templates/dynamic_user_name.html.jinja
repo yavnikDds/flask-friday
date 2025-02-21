@@ -1,0 +1,27 @@
+<h1>Hello from the template, {{ name | upper }} </h1> 
+<h2>print list</h2>
+<ul>
+    {% for item in list %}
+      <li>
+        {% block item_loop scoped %}
+        {# <!--scoped in Jinja2 ensures blocks can access variables from the outer scope, like loop variables.  --> #}
+          {{ item|upper }}
+        {% endblock item_loop %}
+      </li>
+    {% endfor %}
+</ul>
+<br>
+{% for count in counter %}
+    <p>
+        {% if count is divisibleby 3 %} 
+        {# test example which is basically if condition with "is" with Builtin Tests #}
+                {{count}}
+        {% endif %}
+    </p>
+{% endfor %}
+
+
+<!--  just pass the dynamic data thorugh jinja tag {{ variable_name }} -->
+  <!-- filer can be used after | inside the jinja tag, like upper, lower, capitalize 
+  For example, {{ name|striptags|title }} will remove all HTML Tags from variable name and title-case the output (title(striptags(name))). 
+  -->
